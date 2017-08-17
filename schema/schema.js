@@ -4,7 +4,8 @@ const {
     GraphQLInt,
     GraphQLString,
     GraphQLSchema,
-    GraphQLList
+    GraphQLList,
+    GraphQLNonNull
 } = graphql;
 
 const axios = require('axios');
@@ -70,17 +71,22 @@ const mutation = new GraphQLObjectType({
         addUser : {
             type : UserType  , // type here is type of data we are going to return from resolve function
             args : {
-                firstName : { type : GraphQLString},
-                age : { type : GraphQLInt},
-                companyId : { type : GraphQLString},
+                firstName : { type : new GraphQLNonNull(GraphQLString) },
+                age : { type : new GraphQLNonNull(GraphQLInt)},
+                companyId : { type : GraphQLString },
             },
-            resolve(){
-
+            resolve(parentValue, { firstName, age, } ){
+                return axios.post(`http://localhost:3000/users`,{
+                    firstName,
+                    age
+                })
+                .then(resp => resp.data);
             }
         }
     }
 });
 
 module.exports = new GraphQLSchema({
-    query : RootQuery
+    query : RootQuery,
+    mutation
 });
