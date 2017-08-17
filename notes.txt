@@ -8,3 +8,6 @@ query {
     }
 
 }
+
+
+Rootquery is like entry point of data . RootQuery allows to jump at very specific node.
