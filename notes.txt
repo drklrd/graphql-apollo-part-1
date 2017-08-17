@@ -11,3 +11,6 @@ query {
 
 
 Rootquery is like entry point of data . RootQuery allows to jump at very specific node.
+
+
+Resolve function resolves differences between incoming data model and datatype we are trying to use in graphQL
