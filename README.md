@@ -90,3 +90,13 @@ mutation {
   }
 }
 ```
+
+#### Delete user
+
+```javascript
+    mutation{
+        deleteUser(id:"23"){
+            id
+        }
+    }
+```
