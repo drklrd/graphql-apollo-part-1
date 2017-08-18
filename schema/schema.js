@@ -82,6 +82,16 @@ const mutation = new GraphQLObjectType({
                 })
                 .then(resp => resp.data);
             }
+        },
+        deleteUser : {
+            type : UserType, // type here is type of data we return. from resolve
+            args : {
+                id : { type : new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parentValue, { id }){
+                return axios.delete(`http://localhost:3000/users/${id}`)
+                    .then(resp => resp.data);
+            }
         }
     }
 });
