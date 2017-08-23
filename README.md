@@ -1,3 +1,7 @@
+## PART - I  [Graphql-Apollo]
+
+Part One for the Udemy's GraphQL course. Focussing only on the backend part.
+
 ```javascript
 
 query {
@@ -100,3 +104,8 @@ mutation {
         }
     }
 ```
+
+
+### Also consider going through :
+Apollo developers
+dev.apollodata.com/react/cache-updates.html
